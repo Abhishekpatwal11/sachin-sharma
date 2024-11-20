@@ -1,5 +1,6 @@
 package com.example.signUp.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
@@ -22,12 +23,16 @@ public class User {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "Email")
     private String email;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "Password")
+    private String password;
 
-    public User(Integer id, String fName, String lName, String email) {
+    public User(Integer id, String fName, String lName, String email,String password) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
         this.email = email;
+        this.password=password;
     }
 
     public User() {
@@ -63,5 +68,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
