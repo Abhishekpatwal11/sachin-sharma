@@ -1,5 +1,6 @@
 package com.example.signUp.Service;
 
+import com.example.signUp.Common.UserResponse;
 import com.example.signUp.DTO.MessageDTO;
 import com.example.signUp.DTO.UserDTO;
 import com.example.signUp.Model.User;
@@ -99,5 +100,22 @@ public class SignUpService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new MessageDTO("An error occurred: " + e.getMessage(), "error"));
         }
+    }
+    public UserResponse login(UserDTO userDTO)
+    {
+        Optional<User> user = userRepository.findByEmail(userDTO.getEmail());
+        if(user.isPresent())
+        {
+            String password=userDTO.getPassword();
+            String securePassword = user.get().getPassword();
+            if(password.equals(securePassword))
+            {
+                return new UserResponse("Login Successfully. Token: " , true);
+            }
+            else {
+                return new UserResponse("Login Failed",false);
+            }
+        }
+        return new UserResponse("Email do not exists", false);
     }
 }
