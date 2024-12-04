@@ -84,8 +84,8 @@ public class SignUpService {
             User user = modelMapper.map(userDTO, User.class);
 
             // Trim and set user fields
-            user.setfName(userDTO.getfName().trim());
-            user.setlName(userDTO.getlName().trim());
+            user.setfName(userDTO.getFirstName().trim());
+            user.setlName(userDTO.getLastName().trim());
             user.setEmail(userDTO.getEmail().trim());
             user.setPassword(userDTO.getPassword().trim());
 

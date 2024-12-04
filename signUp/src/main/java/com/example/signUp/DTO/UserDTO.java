@@ -2,35 +2,32 @@ package com.example.signUp.DTO;
 
 
 public class UserDTO {
-       private String fName;
-       private String lName;
+       private String firstName;
+       private String lastName;
        private String email;
        private String password;
 
-    public UserDTO(String fName, String lName, String email,String password) {
-        this.fName = fName;
-        this.lName = lName;
+    public UserDTO(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.password=password;
+        this.password = password;
     }
 
-    public UserDTO() {
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getfName() {
-        return fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getlName() {
-        return lName;
-    }
-
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
