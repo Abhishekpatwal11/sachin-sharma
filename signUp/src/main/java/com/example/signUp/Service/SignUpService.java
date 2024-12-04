@@ -101,6 +101,8 @@ public class SignUpService {
                     .body(new MessageDTO("An error occurred: " + e.getMessage(), "error"));
         }
     }
+
+
     public UserResponse login(UserDTO userDTO)
     {
         Optional<User> user = userRepository.findByEmail(userDTO.getEmail());
