@@ -86,6 +86,7 @@ public class SignUpService {
             user.setfName(userDTO.getfName().trim());
             user.setlName(userDTO.getlName().trim());
             user.setEmail(userDTO.getEmail().trim());
+            user.setPassword(userDTO.getPassword().trim());
 
             // Save user to the database
             userRepository.save(user);
